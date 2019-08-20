@@ -48,7 +48,7 @@ Nuestro diseñador propuso el siguiente mock-up para la lista de actividades. Lo
 
 La misión es implementar este mockup según el diseño propuesto por el equipo de diseño. Cabe resaltar que al ser un mockup, no necesariamente refleja 100% lo que sería un producto terminado.
 
-[mockup](https://raw.githubusercontent.com/lstaleroc/xavy-app/master/assets/lista.png)
+![mockup](https://raw.githubusercontent.com/lstaleroc/xavy-app/master/assets/lista.png)
 
 
 #### Punto 2
