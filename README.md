@@ -44,6 +44,31 @@ Los elementos más importantes de una película, son los siguientes:
 - Productores
 - Fecha de lanzamiento
 
-Nuestro diseñador propuso el siguiente mock-up para la lista de actividades.
+Nuestro diseñador propuso el siguiente mock-up para la lista de actividades. Los colores pretenden resaltar la jerarquía de la información, más no es una plantilla pre-definida.
 
-Según la especificación de nuestro equipo de UX, la información más relevante
+La misión es implementar este mockup según el diseño propuesto por el equipo de diseño. Cabe resaltar que al ser un mockup, no necesariamente refleja 100% lo que sería un producto terminado.
+
+#### Punto 2
+
+Partiendo del punto anterior, queremos realizar la implementación del botón `Ver más` presentado en el mockup del punto uno.
+
+Al dar clic en este botón, la aplicación debe navegar a una nueva pantalla del **detalle** de la película seleccionada.
+
+En esta nueva vista se debe realizar un `query` al endpoint `Film`, y traer la información:
+
+- title
+- releaseDate
+- director
+- isReleased
+
+Y exponerla en la pantalla como texto (el estilo se hará en el punto siguiente)
+
+#### Punto 3
+
+Una vez conectada la nueva vista al `query` la idea es presentar de una forma atractiva la información de una película (`Film`) y las especies (`Species`) que aparecen en ella.
+
+Este punto tiene dos partes:
+
+1.  Consulta la documentación del tipo `Species` en https://swapi.graph.cool/. De los atributos de este tipo, escoje aquellos que te parezcan más relevantes para mostrárselos a nuestros usuarios e inclúyelos en el QUERY.
+
+2.  Implementa un diseño de la vista de la película donde se pueda distinguir la información básica y las distintas especies que aparecen en ella.
