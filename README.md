@@ -19,13 +19,13 @@ Tener una de las siguientes dos formas de ejecutar la aplicación de expo en amb
 
 ### Instrucciones
 
-Para empezar a trabajar el ejercicio haz un fork de este repositorio en tu cuenta de github como se indica en este [link](https://help.github.com/en/articles/fork-a-repo#fork-an-example-repository)
+1. Para empezar a trabajar el ejercicio haz un fork de este repositorio en tu cuenta de github como se indica en este [link](https://help.github.com/en/articles/fork-a-repo#fork-an-example-repository).
 
-Instala las dependencias del proyecto con el comando `yarn install`
+2. Instala las dependencias del proyecto con el comando `yarn install`
 
-Ejecuta el servidor de aplicaciones con `expo start`
+3. Ejecuta el servidor de aplicaciones con `expo start`
 
-Abre la aplicación en tu teléfono o en un emulador.
+4. Abre la aplicación en tu teléfono o en un emulador.
 
 ### Enunciado
 
