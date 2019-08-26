@@ -62,7 +62,7 @@ En esta nueva vista se debe realizar un `query` al endpoint `Film`, y traer la i
 - title
 - releaseDate
 - director
-- isReleased
+- isPublished
 
 Y exponerla en la pantalla como texto (el estilo se hará en el punto siguiente)
 
