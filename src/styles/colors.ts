@@ -1,6 +1,6 @@
 export const transparent = "transparent"
 
-export const black = "#22292f"
+export const black = "#000000"
 export const white = "#ffffff"
 
 export const gray100 = "#f7fafc"
@@ -49,7 +49,7 @@ export const celeste500 = "#81defd"
 export const celeste600 = "#5ed0fa"
 export const celeste700 = "#40c3f7"
 
-export const yellow100 = "#fcfbeb"
+export const yellow100 = "#ffe81f"
 export const yellow200 = "#fff9c2"
 export const yellow300 = "#fff382"
 export const yellow500 = "#ffed4a"
