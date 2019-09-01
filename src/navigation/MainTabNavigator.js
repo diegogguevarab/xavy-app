@@ -6,6 +6,7 @@ import {
   createAppContainer
 } from "react-navigation"
 import HomeScreen from "../screens/HomeScreen"
+import {Colors} from "../styles";
 
 const HomeStack = createStackNavigator({
   Home: { screen: HomeScreen },
@@ -30,8 +31,10 @@ export default createAppContainer(
         }
       }),
       tabBarOptions: {
-        activeTintColor: "tomato",
-        inactiveTintColor: "gray"
+        activeTintColor: Colors.yellow100,
+        inactiveTintColor: Colors.blue100,
+        activeBackgroundColor: Colors.black,
+        inactiveBackgroundColor: Colors.red100
       }
     }
   )
