@@ -1,9 +1,9 @@
 import React from "react"
 import gql from "graphql-tag"
-import { useQuery } from "@apollo/react-hooks"
-import { Text, View, ScrollView, TouchableHighlight } from "react-native"
-import { Colors } from "../styles"
-import { Card, CardItem } from "native-base"
+import {useQuery} from "@apollo/react-hooks"
+import {Text, View, ScrollView, TouchableHighlight} from "react-native"
+import {Colors} from "../styles"
+import {Card, CardItem} from "native-base"
 import moment from "moment"
 
 const ALL_FILMS_QUERY = gql`
@@ -16,12 +16,12 @@ const ALL_FILMS_QUERY = gql`
       releaseDate
     }
   }
-`
+`;
 
 export default function HomeScreen(props) {
-  const { loading, error, data } = useQuery(ALL_FILMS_QUERY)
-  if (loading) return <Text>Loading...</Text>
-  if (error) return <Text>Error!!</Text>
+  const {loading, error, data} = useQuery(ALL_FILMS_QUERY);
+  if (loading) return <Text>Loading...</Text>;
+  if (error) return <Text>Error!!</Text>;
   return (
     <View
       style={{
@@ -31,6 +31,9 @@ export default function HomeScreen(props) {
         backgroundColor: Colors.black
       }}>
       <ScrollView>
+        <Text style={{fontWeight: "bold", color: Colors.yellow100, fontSize: 36, textAlign: "left"}}>
+          Bienvenidos a Xavy Wars
+        </Text>
         {data.allFilms.map((film, key) => (
           <Card
             key={key}
@@ -39,7 +42,10 @@ export default function HomeScreen(props) {
               borderColor: Colors.yellow100,
               borderStyle: "solid",
               borderBottomColor: Colors.yellow100,
-              minWidth: "95%"
+              minWidth: "95%",
+              shadowColor: Colors.black,
+              shadowOpacity: 0.5,
+              shadowRadius: 0.5
             }}>
             <CardItem
               style={{
@@ -64,8 +70,8 @@ export default function HomeScreen(props) {
                 {moment(film.releaseDate).format("YYYY-MM-DD")}
               </Text>
             </CardItem>
-            <CardItem style={{ backgroundColor: Colors.black }}>
-              <Text style={{ color: Colors.yellow100, fontSize: 18 }}>
+            <CardItem style={{backgroundColor: Colors.black}}>
+              <Text style={{color: Colors.yellow100, fontSize: 18}}>
                 {film.director}
               </Text>
             </CardItem>
@@ -79,15 +85,16 @@ export default function HomeScreen(props) {
               {film.producers.map((producer, prod_key) => (
                 <Text
                   key={prod_key}
-                  style={{ color: Colors.yellow100, fontSize: 15, flex: 1 }}>
+                  style={{color: Colors.yellow100, fontSize: 15, flex: 1}}>
                   {producer}
                 </Text>
               ))}
-              <TouchableHighlight
-                onPress={() => {
-                //  TODO: Go to Details screen
-                }}>
-                <Text style={{ color: Colors.yellow100, flex: 1 }}>
+              <TouchableHighlight key={'det_key'}
+                                  onPress={() => {
+                                    props.navigation.navigate('Details', {id: key})
+                                  }}>
+                <Text key={'det_key'}
+                      style={{color: Colors.yellow100, fontSize: 20, textShadowColor: Colors.red800, flex: 1}}>
                   Ver mas
                 </Text>
               </TouchableHighlight>

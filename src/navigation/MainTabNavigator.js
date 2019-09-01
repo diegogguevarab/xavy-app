@@ -1,33 +1,35 @@
 import React from "react"
-import { Ionicons } from "@expo/vector-icons"
+import {Ionicons} from "@expo/vector-icons"
 import {
   createStackNavigator,
   createBottomTabNavigator,
   createAppContainer
 } from "react-navigation"
 import HomeScreen from "../screens/HomeScreen"
+import DetailsScreen from "../screens/DetailsScreen"
 import {Colors} from "../styles";
 
 const HomeStack = createStackNavigator({
-  Home: { screen: HomeScreen },
-})
+  Home: {screen: HomeScreen},
+  Details: {screen: DetailsScreen}
+});
 
 export default createAppContainer(
   createBottomTabNavigator(
     {
-      Home: { screen: HomeStack }
+      Home: {screen: HomeStack}
     },
     {
-      defaultNavigationOptions: ({ navigation }) => ({
-        tabBarIcon: ({ focused, tintColor }) => {
-          const { routeName } = navigation.state
-          let iconName
+      defaultNavigationOptions: ({navigation}) => ({
+        tabBarIcon: ({focused, tintColor}) => {
+          const {routeName} = navigation.state;
+          let iconName;
           if (routeName === "Home") {
             iconName = `ios-home`
           }
           // You can return any component that you like here! We usually use an
           // icon component from react-native-vector-icons
-          return <Ionicons name={iconName} size={25} color={tintColor} />
+          return <Ionicons name={iconName} size={25} color={tintColor}/>
         }
       }),
       tabBarOptions: {
