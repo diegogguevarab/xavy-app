@@ -8,14 +8,14 @@ import moment from "moment"
 
 const ALL_FILMS_QUERY = gql`
   query {
-    allFilms {
-      id
-      title
-      director
-      producers
-      releaseDate
-    }
+  allFilms(orderBy: releaseDate_ASC) {
+    id
+    title
+    director
+    producers
+    releaseDate
   }
+}
 `;
 
 export default function HomeScreen(props) {
@@ -32,7 +32,7 @@ export default function HomeScreen(props) {
       }}>
       <ScrollView>
         <Text style={{fontWeight: "bold", color: Colors.yellow100, fontSize: 36, textAlign: "left"}}>
-          Bienvenidos a Xavy Wars
+          Bienvenidos a Xavy Wars!
         </Text>
         {data.allFilms.map((film, key) => (
           <Card
@@ -42,62 +42,68 @@ export default function HomeScreen(props) {
               borderColor: Colors.yellow100,
               borderStyle: "solid",
               borderBottomColor: Colors.yellow100,
+              borderEndColor: Colors.yellow100,
+              borderLeftColor: Colors.yellow100,
+              borderRightColor: Colors.yellow100,
               minWidth: "95%",
-              shadowColor: Colors.black,
-              shadowOpacity: 0.5,
-              shadowRadius: 0.5
+              borderTopWidth: 2.5,
+              borderBottomWidth: 2.5,
+              borderRightWidth: 2.5,
+              borderLeftWidth: 2.5
             }}>
-            <CardItem
-              style={{
-                flex: 1,
-                backgroundColor: Colors.black,
-                flexDirection: "row"
-              }}>
+            <CardItem style={{flex: 1, backgroundColor: Colors.black, flexDirection: "row"}}>
               <Text
                 style={{
                   flex: 1,
                   color: Colors.yellow100,
                   fontWeight: "bold",
-                  fontSize: 25
+                  fontSize: 25,
+                  flexWrap: "wrap"
                 }}>
                 {film.title}
               </Text>
-              <Text
-                style={{
-                  color: Colors.yellow100,
-                  textAlign: "right"
-                }}>
+              <Text style={{color: Colors.yellow100, textAlign: "right", fontSize: 15, flex: 1}}>
                 {moment(film.releaseDate).format("YYYY-MM-DD")}
               </Text>
             </CardItem>
             <CardItem style={{backgroundColor: Colors.black}}>
-              <Text style={{color: Colors.yellow100, fontSize: 18}}>
+              <Text style={{color: Colors.yellow100, fontSize: 20}}>
                 {film.director}
               </Text>
             </CardItem>
             <CardItem
               style={{
                 backgroundColor: Colors.black,
-                justifyContent: "space-between",
                 flex: 1,
-                flexDirection: "row"
+                justifyContent: "space-between"
               }}>
-              {film.producers.map((producer, prod_key) => (
-                <Text
-                  key={prod_key}
-                  style={{color: Colors.yellow100, fontSize: 15, flex: 1}}>
-                  {producer}
-                </Text>
-              ))}
-              <TouchableHighlight key={'det_key'}
-                                  onPress={() => {
-                                    props.navigation.navigate('Details', {id: key})
-                                  }}>
-                <Text key={'det_key'}
-                      style={{color: Colors.yellow100, fontSize: 20, textShadowColor: Colors.red800, flex: 1}}>
-                  Ver mas
-                </Text>
-              </TouchableHighlight>
+              <View sytle={{justifyContent: "space-between", flexDirection: "row"}}>
+                {film.producers.map((producer, prod_key) => (
+                  <Text
+                    key={prod_key}
+                    style={{color: Colors.yellow100, fontSize: 17}}>
+                    {producer}
+                  </Text>
+                ))}
+              </View>
+              <View sytle={{backgroundColor: Colors.black, alignContent: "right"}}>
+                <TouchableHighlight key={'det_key'}
+                                    onPress={() => {
+                                      props.navigation.navigate('Details', {id: key})
+                                    }}>
+                  <Text key={'det_key'}
+                        style={{
+                          color: Colors.yellow100,
+                          fontSize: 20,
+                          textShadowColor: Colors.red600,
+                          textShadowOffset: {height: 3},
+                          textShadowRadius: 5,
+                          flex: 1
+                        }}>
+                    Ver más
+                  </Text>
+                </TouchableHighlight>
+              </View>
             </CardItem>
           </Card>
         ))}
